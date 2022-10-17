@@ -37,7 +37,7 @@ cd ~/MagicMirror/modules
 
 Clone this repository:
 ````
-git clone https://github.com/theskyisthelimit/MMM-homeassistant-sensors.git
+git clone https://github.com/Snille/MMM-homeassistant-sensors.git
 ````
 
 Enter the folder:
