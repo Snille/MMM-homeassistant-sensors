@@ -1,6 +1,6 @@
 # MMM-homeassistant-sensors
 
-This a module for the [MagicMirror²](https://magicmirror.builders/). 
+This is a module for [MagicMirror²](https://magicmirror.builders/). 
 
 This module can display information from [Home Assistant](https://home-assistant.io/) using the home assistant REST API.
 
@@ -8,9 +8,9 @@ This module can display information from [Home Assistant](https://home-assistant
 
 *The "control" sensor is moved to the "values" block of the config!*
 
-*Read blow how to configure it!*
+*Read below how to configure it!*
 
-### Screen shots
+## Screenshots
 
 [Advanced configuration](#Here-is-the-advanced-configuration).
 
@@ -29,7 +29,7 @@ Using many of the features:
 ![Advanced](.github/screen01-advanced.png)
 
 
-### Installation
+## Installation
 
 In your terminal, go to your MagicMirror's Module folder:
 ````
@@ -51,6 +51,15 @@ Install dependencies.
 npm install
 ````
 
+## Update
+
+To update the module:
+
+````
+cd ~/MagicMirror/modules/MMM-homeassistant-sensors
+git pull
+npm install
+````
 
 ## Configuration
 The configuration can be very simple, from just displaying a simple value from a senor, to parsing the sensorvalue and changing it to different pictures depending on the value. It's all up to you.
@@ -592,5 +601,5 @@ Added the following to my `custom.css` file.
 ```
 
 ## Special Thanks
-- [Michael Teeuw](https://github.com/MichMich) for creating the awesome [MagicMirror2](https://github.com/MichMich/MagicMirror/tree/develop) project that made this module possible.
+- [Michael Teeuw](https://github.com/MichMich) for creating the awesome [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) project that made this module possible.
 - [tkoeberl](https://github.com/tkoeberl) for creating the initial module that I used as guidance in creating this module.

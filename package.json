@@ -1,10 +1,10 @@
 {
   "name": "MMM-homeassistant-sensors",
   "version": "2.2.0",
-  "description": "Pull Home Assistant Sensor information to the Magic Mirror",
+  "description": "Pull Home Assistant sensor information to the MagicMirror²",
   "repository": {
     "type": "git",
-    "url": "github.com:Snille/MMM-homeassistant-sensors.git"
+    "url": "https://github.com/Snille/MMM-homeassistant-sensors.git"
   },
   "keywords": [
     "magic mirror",
@@ -15,7 +15,15 @@
   ],
   "author": "Erik Pettersson",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint"
+  },
   "dependencies": {
     "@mdi/font": "latest"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0"
   }
 }
