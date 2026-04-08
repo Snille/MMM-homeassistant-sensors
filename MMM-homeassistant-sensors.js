@@ -38,7 +38,7 @@ Module.register("MMM-homeassistant-sensors", {
 	},
 
 	// Refresh the data from HA if the notification "REFRESHVALUES(x)" arrives.
-	notificationReceived: function (notification, payload, sender) {
+	notificationReceived: function (notification) {
 		var self = this;
 		if (self.config.id !== false ) {
 			if (notification === "REFRESHVALUES" + self.config.id) {
@@ -262,8 +262,6 @@ Module.register("MMM-homeassistant-sensors", {
 					// Send notification
 					if(values[i].notificationName !== undefined) {
 						var notificationValue = undefined;
-						var origValue = values[i].notificationState;
-
 						if(this.debuglogging) {
 							console.log("MMM-homeassistant-sensors - stateval: " + stateval);
 						}
@@ -430,7 +428,6 @@ Module.register("MMM-homeassistant-sensors", {
 		newText,
 		newCell;
 		var newValue;
-		var newValueArray = "|";
 		var datedata;
 		var timedata;
 		var unit;

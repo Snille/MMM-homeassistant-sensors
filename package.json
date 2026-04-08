@@ -1,6 +1,7 @@
 {
-  "name": "MMM-homeassistant-sensors",
+  "name": "mmm-homeassistant-sensors",
   "version": "2.2.0",
+  "type": "commonjs",
   "description": "Pull Home Assistant sensor information to the MagicMirror²",
   "repository": {
     "type": "git",

@@ -10,7 +10,6 @@ module.exports = NodeHelper.create({
 		var self = this;
 		var id = config.id;
 		config = config.config;
-		var url = self.buildUrl(config);
 		var get_options = {
 			method: 'GET',
 			headers: {
