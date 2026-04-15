@@ -70,9 +70,10 @@ The configuration can be very simple, from just displaying a simple value from a
 | `prettyName`         | No | `true` | Pretty print the name of each JSON key (remove camelCase and underscores).|
 | `stripName`          | No | `true` | Removes all keys before the printed key. <br><br>**Example:** `a.b.c` will print `c`.|
 | `title`              | No | `'Home Assistant'` | Title to display at the top of the module. <br>|
-| `host`               | Yes |  `'hassio.local'` | The hostname or ip adress of the home assistant instance.|
-| `port`               | No | `8321` | Port of homeassistant e.g. 443 for SSL.|
-| `https`              | Yes | `false` | Is SSL enabled on home assistant (true/false)|
+| `host`               | Yes |  `'hassio.local'` | The hostname or IP address of the Home Assistant instance. **Do not include** `http://` or `https://` — use the `https` option instead.|
+| `port`               | No | `8321` | Port of Home Assistant. Use `8123` for a standard local installation, or `443` when connecting via HTTPS to a domain/reverse proxy.|
+| `https`              | No | `false` | Set to `true` to connect to Home Assistant over HTTPS.|
+| `rejectUnauthorized` | No | `false` | Set to `true` to require a valid (CA-signed) certificate. Leave as `false` (default) to allow self-signed certificates, which is common in local Home Assistant setups.|
 | `token`              | Yes | `''` | The long lived token.|
 | `fade`               | No | `100` | When updating the values, this is the time (in milliseconds) the "table" fades out and in again.|
 | `updateInterval`     | No | `300000` | The time between updates (in milliseconds) (300000 = 5 minutes).|
@@ -145,15 +146,43 @@ The configuration can be very simple, from just displaying a simple value from a
 | -------------------- | --------- | ----------- |
 | `value`              | `your new value` | You can define a specific value the will be replaced with this value.|
 
-### Simple configuration
-```
+### Simple configuration (HTTP)
+
+```javascript
 {
 	module: 'MMM-homeassistant-sensors',
 	position: 'top_left',
 	config: {
-		host: "IP TO HOME ASSISTANT",
+		host: "192.168.1.x",  // IP address or hostname, without http:// or https://
 		port: "8123",
 		https: false,
+		token: "YOUR OWN",
+		values: [
+			{
+				sensor: "sensor.vind_temperature",
+			},
+			{
+				sensor: "sensor.vind_humidity",
+			},
+		]
+	}
+},
+```
+
+### HTTPS configuration
+
+When connecting to Home Assistant via a domain name or reverse proxy using HTTPS, use port `443` and set `https: true`. Do **not** include `https://` in the `host` value.
+
+```javascript
+{
+	module: 'MMM-homeassistant-sensors',
+	position: 'top_left',
+	config: {
+		host: "your-ha-domain.example.com",  // No https:// prefix!
+		port: "443",
+		https: true,
+		rejectUnauthorized: true,  // true = require valid CA-signed cert (recommended for public domains)
+		                           // false = allow self-signed certs (use for local/internal setups)
 		token: "YOUR OWN",
 		values: [
 			{
