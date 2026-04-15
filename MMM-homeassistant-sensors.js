@@ -8,7 +8,8 @@ Module.register("MMM-homeassistant-sensors", {
 		title: 'Home Assistant',
 		host: 'hassio.local',
 		port: '8321',
-		https: false, 
+		https: false,
+		rejectUnauthorized: false, // Set to true if your HA uses a valid (non-self-signed) certificate
 		token: '',
 		apipassword: '',
 		fade: 100,
