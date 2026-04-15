@@ -76,7 +76,8 @@ module.exports = NodeHelper.create({
 	// The actual building of each url to be fetched.
 	buildUrl: function(config, sensor) {
 		if(config.debuglogging) { console.log('MMM-homeassistant-sensors: Configured Sensors: ', config.values); }
-		var url = config.host;
+		// Strip any protocol prefix the user may have included in host
+		var url = config.host.replace(/^https?:\/\//, '');
 		if (config.port) {
 			url = url + ':' + config.port;
 		}
