@@ -84,7 +84,7 @@ Module.register("MMM-homeassistant-sensors", {
 					// Check if there a control sensor in the config.
 					if (values[i].control) {
 						if (data.length > 0) {
-							for (var s = 0; i < data.length; i++) {
+							for (var s = 0; s < data.length; s++) {
 								// If we do...
 								if (data[s].entity_id == values[i].sensor) {
 									// Check if the state is the same as the control-state.
