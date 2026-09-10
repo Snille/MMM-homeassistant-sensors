@@ -238,7 +238,7 @@ Module.register("MMM-homeassistant-sensors", {
 						values[i].displayvalue,
 						values[i].divider,
 						values[i].multiplier,
-						values[i].round,
+						typeof values[i].round === "undefined" ? 2 : values[i].round,
 						this.getAddress(data, sensor),
 						values[i].displayunit,
 						values[i].highAlertThreshold,
@@ -679,10 +679,11 @@ Module.register("MMM-homeassistant-sensors", {
 				newValue = newValue * sensordata[12];
 			}
 
-			// Round the value to two decimals.
-			// Todo: Add a better function for this...
-			if (sensordata[13]) {
-				newValue = Math.round(newValue * 100) / 100;
+			// Round numeric values to the configured number of decimal places.
+			var decimalPlaces = sensordata[13];
+			if (Number.isInteger(decimalPlaces) && decimalPlaces >= 0 && Number.isFinite(Number(newValue))) {
+				var roundingFactor = Math.pow(10, decimalPlaces);
+				newValue = Math.round(Number(newValue) * roundingFactor) / roundingFactor;
 			}
 
 			// If you want to add the value to the defined unit.
