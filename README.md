@@ -96,7 +96,7 @@ The configuration can be very simple, from just displaying a simple value from a
 | `name`                   | `string` | You can specify a name that will be displayed instead of the one from HA.|
 | `divider`                | `number` | You can specify a number (or calculation) that the value should be divided by.|
 | `multiplier`             | `number` | You can specify a number (or calculation) that value should be multiplied by.|
-| `round`                  | `boolean` | true or false if you want to round the value to max two decimals.|
+| `round`                  | `number` | Number of decimal places to round numeric values to. Defaults to `2`; use `0` to round to a whole number.|
 | `displayvalue`           | `boolean` | Set to false to not display the state in the value column. |
 | `useValue`               | `false`   | Set this to true to use the sensor value instead of the sensor state|
 | `displayunit`            | `boolean` | Set to false to not display the unit in the unit column. |
